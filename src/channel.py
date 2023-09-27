@@ -31,7 +31,16 @@ class Channel:
 
     def to_json(self, filename):
         with open(filename, 'w') as outfile:
-            json.dump(self.get_info(), outfile)
+            data = {
+                "channel_id": self.channel_id,
+                "title": self.title,
+                "description": self.description,
+                "url": self.customUrl,
+                "subscribers": self.followers,
+                "video_count": self.videos,
+                "views": self.views,
+            }
+            json.dump(data, outfile)
 
 
     @property
