@@ -15,6 +15,27 @@ class Channel:
         self.videos = self.get_info()['items'][0]['statistics']['videoCount']
         Channel.obj = self
 
+    def __str__(self):
+        return f"{self.title} (https://www.youtube.com/channel/{self.channel_id})"
+
+    def __add__(self, other):
+        return int(self.followers) + int(other.followers)
+
+    def __sub__(self, other):
+        return int(self.followers) - int(other.followers)
+
+    def __lt__(self, other):
+        return int(self.followers) < int(other.followers)
+
+    def __le__(self, other):
+        return int(self.followers) <= int(other.followers)
+
+    def __gt__(self, other):
+        return int(self.followers) > int(other.followers)
+
+    def __ge__(self, other):
+        return int(self.followers) >= int(other.followers)
+
     def get_info(self) -> str:
         api_key = 'AIzaSyCemWJ_acfZl3wE85blGxwZ3SkCwCTRGsk'
         youtube = build('youtube', 'v3', developerKey=api_key)
