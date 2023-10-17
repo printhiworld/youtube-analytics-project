@@ -18,5 +18,5 @@ if __name__ == '__main__':
     moscowpython.to_json('moscowpython.json')
 
     # менять не можем
-    moscowpython.channel_id = 'Новое название'
+    #moscowpython.channel_id = 'Новое название'
     # AttributeError: property 'channel_id' of 'Channel' object has no setter
